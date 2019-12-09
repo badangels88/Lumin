@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using CppAst;
+﻿using CppAst;
 using CppAst.CodeGen.Common;
 using CppAst.CodeGen.CSharp;
+using System;
+using System.IO;
+using System.Linq;
 using Zio.FileSystems;
 
 namespace BindingGenerator
