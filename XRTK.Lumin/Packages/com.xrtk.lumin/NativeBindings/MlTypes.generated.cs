@@ -43,59 +43,50 @@ namespace XRTK.Lumin.Native.Bindings
         /// <summary>
         /// 3D vector represented with X, Y, and Z floats
         /// </summary>
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+        [StructLayout(LayoutKind.Explicit, CharSet = CharSet.Ansi)]
         public struct MLVec3f
         {
-            [StructLayout(LayoutKind.Explicit, CharSet = CharSet.Ansi)]
-            public struct MLVec3funion
-            {
-                [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-                public struct MLVec3funionstruct
-                {
-                    public float x;
+            [FieldOffset(0)]
+            public float x;
 
-                    public float y;
+            [FieldOffset(4)]
+            public float y;
 
-                    public float z;
-                }
+            [FieldOffset(8)]
+            public float z;
 
-                [FieldOffset(0)]
-                public MlTypes.MLXYZf xyz;
+            [FieldOffset(0)]
+            public MlTypes.MLXYZf xyz;
 
-                [FieldOffset(0)]
-                [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)]
-                public float[] values;
-            }
+            [FieldOffset(0)]
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 3)]
+            public float[] values;
         }
 
         /// <summary>
         /// Quaternion stored as X, Y, Z, W floats
         /// </summary>
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+        [StructLayout(LayoutKind.Explicit, CharSet = CharSet.Ansi)]
         public struct MLQuaternionf
         {
-            [StructLayout(LayoutKind.Explicit, CharSet = CharSet.Ansi)]
-            public struct MLQuaternionfunion
-            {
-                [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-                public struct MLQuaternionfunionstruct
-                {
-                    public float x;
+            [FieldOffset(0)]
+            public float x;
 
-                    public float y;
+            [FieldOffset(4)]
+            public float y;
 
-                    public float z;
+            [FieldOffset(8)]
+            public float z;
 
-                    public float w;
-                }
+            [FieldOffset(12)]
+            public float w;
 
-                /// <summary>
-                /// Values of the quaternions laid out as X, Y, Z, W
-                /// </summary>
-                [FieldOffset(0)]
-                [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)]
-                public float[] values;
-            }
+            /// <summary>
+            /// Values of the quaternions laid out as X, Y, Z, W
+            /// </summary>
+            [FieldOffset(0)]
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 4)]
+            public float[] values;
         }
 
         /// <summary>
@@ -159,27 +150,23 @@ namespace XRTK.Lumin.Native.Bindings
         /// <summary>
         /// Color represented by 4 unsigned bytes
         /// </summary>
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+        [StructLayout(LayoutKind.Explicit, CharSet = CharSet.Ansi)]
         public struct MLColor32
         {
-            [StructLayout(LayoutKind.Explicit, CharSet = CharSet.Ansi)]
-            public struct MLColor32union
-            {
-                [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-                public struct MLColor32unionstruct
-                {
-                    public byte a;
+            [FieldOffset(0)]
+            public byte a;
 
-                    public byte b;
+            [FieldOffset(1)]
+            public byte b;
 
-                    public byte g;
+            [FieldOffset(2)]
+            public byte g;
 
-                    public byte r;
-                }
+            [FieldOffset(3)]
+            public byte r;
 
-                [FieldOffset(0)]
-                public uint rgba;
-            }
+            [FieldOffset(0)]
+            public uint rgba;
         }
 
         /// <summary>
@@ -200,33 +187,31 @@ namespace XRTK.Lumin.Native.Bindings
         /// <summary>
         /// Universally Unique Identifier
         /// </summary>
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+        [StructLayout(LayoutKind.Explicit, CharSet = CharSet.Ansi)]
         public struct MLUUID
         {
-            [StructLayout(LayoutKind.Explicit, CharSet = CharSet.Ansi)]
-            public struct MLUUIDunion
-            {
-                [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-                public struct MLUUIDunionstruct
-                {
-                    public uint time_low;
+            [FieldOffset(0)]
+            public uint time_low;
 
-                    public ushort time_mid;
+            [FieldOffset(4)]
+            public ushort time_mid;
 
-                    public ushort time_hi_and_version;
+            [FieldOffset(6)]
+            public ushort time_hi_and_version;
 
-                    public byte clock_seq_hi_and_reserved;
+            [FieldOffset(8)]
+            public byte clock_seq_hi_and_reserved;
 
-                    public byte clock_seq_low;
+            [FieldOffset(9)]
+            public byte clock_seq_low;
 
-                    [MarshalAs(UnmanagedType.LPArray, SizeConst = 6)]
-                    public byte[] node;
-                }
+            [FieldOffset(10)]
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 6)]
+            public byte[] node;
 
-                [FieldOffset(0)]
-                [MarshalAs(UnmanagedType.LPArray, SizeConst = 16)]
-                public byte[] data;
-            }
+            [FieldOffset(0)]
+            [MarshalAs(UnmanagedType.LPArray, SizeConst = 16)]
+            public byte[] data;
         }
     }
 }

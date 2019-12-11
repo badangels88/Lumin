@@ -291,6 +291,7 @@ namespace XRTK.Lumin.Native.Bindings
         /// </summary>
         /// <param name="handle">MLHandle to the</param>
         /// <param name="index">Index of the track</param>
+        /// <param name="out_track_handle"></param>
         /// <returns>
         /// MLResult_InvalidParam If one of parameters is invalid
         /// MLResult_Ok If operation succeeded

@@ -40,7 +40,10 @@ namespace BindingGenerator
                 SystemIncludeFolders = { "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.23.28105\\include" },
                 MappingRules =
                 {
-                    e => e.MapAll<CppElement>().CppAction(ProcessHeaders),
+                    // Discards
+                    // e => e.MapAll<CppElement>().CppAction(ProcessHeaders),
+
+                    #region Header and library mappings
 
                     e => e.MapAll<CppElement>().DllImportLibrary("\"ml_audio\"", "ml_audio.h"),
                     e => e.MapAll<CppElement>().DllImportLibrary("\"ml_input\"", "ml_input.h"),
@@ -57,6 +60,7 @@ namespace BindingGenerator
                     e => e.MapAll<CppElement>().DllImportLibrary("\"ml_purchase\"", "ml_purchase.h"),
                     e => e.MapAll<CppElement>().DllImportLibrary("\"ml_mediadrm\"", "ml_media_drm.h"),
                     e => e.MapAll<CppElement>().DllImportLibrary("\"ml_ext_logging\"", "ml_logging.h"),
+                    e => e.MapAll<CppElement>().DllImportLibrary("\"ml_identity\"", "ml_token_agent.h"),
                     e => e.MapAll<CppElement>().DllImportLibrary("\"ml_networking\"", "ml_networking.h"),
                     e => e.MapAll<CppElement>().DllImportLibrary("\"ml_sharedfile\"", "ml_sharedfile.h"),
                     e => e.MapAll<CppElement>().DllImportLibrary("\"ml_mediaerror\"", "ml_media_error.h"),
@@ -98,6 +102,8 @@ namespace BindingGenerator
                     e => e.MapAll<CppElement>().DllImportLibrary("\"ml_perception_client\"", "ml_image_tracking.h"),
                     e => e.MapAll<CppElement>().DllImportLibrary("\"ml_perception_client\"", "ml_lighting_tracking.h"),
                     e => e.MapAll<CppElement>().DllImportLibrary("\"ml_perception_client\"", "ml_persistent_coordinate_frames.h"),
+
+                    #endregion Header and library mappings
                 }
             };
 
